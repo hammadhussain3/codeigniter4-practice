@@ -22,7 +22,13 @@
                 <td><?php echo $user['user_name'] ?></td>
                 <td><?php echo $user['user_email'] ?></td>
                 <td><?php echo $user['user_password'] ?></td>
-                <td><img src="<?= base_url('public/uploads/' . $user['user_image']) ?>" alt="" style="width:50px"></td>
+                <td>
+                <?php if($user['user_image']){?>
+                    <img class="mb-3" id="output-img" alt="Preview Image" style="width: 50px;" src="<?= base_url('public/uploads/' . $user['user_image']) ?>" /><br><br>
+                <?php } else{?>
+                    <img class="mb-3" id="output-img" alt="Preview Image" style="width: 50px;" src="https://via.placeholder.com/300" /><br><br>
+                <?php } ?>
+                </td>
                 <td><a href="<?php echo base_url(); ?>edit/<?php echo $user['user_id'] ?>">Edit</a></td>
                 <td><a href="<?php echo base_url(); ?>delete/<?php echo $user['user_id'] ?>">Delete</a></td>
             </tr>

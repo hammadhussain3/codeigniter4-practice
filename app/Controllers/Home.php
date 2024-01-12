@@ -19,9 +19,13 @@ class Home extends BaseController
         return redirect()->to(base_url('show'));
     }
     public function insert(){
-        $image = $this->request->getFile('user_image');
-        $newName = $image->getRandomName();
-        $image->move(ROOTPATH . 'public/uploads', $newName);
+        if($this->request->getFile('user_image') && $this->request->getFile('user_image')->isValid()){
+            $image = $this->request->getFile('user_image');
+            $newName = $image->getRandomName();
+            $image->move(ROOTPATH . 'public/uploads', $newName);
+        } else{
+            $newName = null;
+        }
         $data = [
                 'user_name' => $this->request->getVar('username'),
                 'user_email' => $this->request->getVar('email'),
@@ -38,10 +42,14 @@ class Home extends BaseController
         return view('edit',$data);
     }
     public function update(){
+        $image = $this->request->getFile('user_image');
+        $newName = $image->getRandomName();
+        $image->move(ROOTPATH . 'public/uploads', $newName);
         $data = [
             'user_name' => $this->request->getVar('username'),
             'user_email' => $this->request->getVar('email'),
             'user_password' => $this->request->getVar('password'),
+            'user_image' => $newName,
     ]; 
         $id = $this->request->getVar('id');
         $model = new User();
