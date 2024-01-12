@@ -12,6 +12,7 @@
             <th>UserName</th>
             <th>UserEmail</th>
             <th>UserPassword</th>
+            <th>UserImage</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -21,6 +22,7 @@
                 <td><?php echo $user['user_name'] ?></td>
                 <td><?php echo $user['user_email'] ?></td>
                 <td><?php echo $user['user_password'] ?></td>
+                <td><img src="<?= base_url('public/uploads/' . $user['user_image']) ?>" alt="" style="width:50px"></td>
                 <td><a href="<?php echo base_url(); ?>edit/<?php echo $user['user_id'] ?>">Edit</a></td>
                 <td><a href="<?php echo base_url(); ?>delete/<?php echo $user['user_id'] ?>">Delete</a></td>
             </tr>
