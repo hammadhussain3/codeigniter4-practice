@@ -21,7 +21,6 @@
                 <th>ID</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Profile</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -32,7 +31,6 @@
                 <td><?php echo $user['user_id'] ?></td>
                 <td><?php echo $user['user_name'] ?></td>
                 <td><?php echo $user['user_email'] ?></td>
-                <td><?php echo $user['user_password'] ?></td>
                 <td>
                 <?php if($user['user_image']){?>
                     <img class="mb-3" id="output-img" alt="Preview Image" style="width: 50px;" src="<?= base_url('public/uploads/' . $user['user_image']) ?>" /><br><br>

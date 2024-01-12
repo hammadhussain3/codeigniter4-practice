@@ -7,6 +7,38 @@ class Home extends BaseController
     public function __construct(){
         helper('addition');
     }
+    public function login(){
+        return view('login');
+    }
+    public function verify_login(){
+        $session = session();
+        $userModel = new User();
+        $username = $this->request->getVar('username');
+        $password = $this->request->getVar('password');
+        
+        $data = $userModel->where('user_name', $username)->first();
+        if($data){
+            $pass = $data['user_password'];
+            $authenticatePassword = password_verify($password, $pass);
+            if($authenticatePassword){
+                $ses_data = [
+                    'id' => $data['user_id'],
+                    'email' => $data['user_email'],
+                    'user_name' => $data['user_name'],
+                    'isLoggedIn' => TRUE
+                ];
+                $session->set($ses_data);
+                return redirect()->to('/show');
+            
+            }else{
+                $session->setFlashdata('msg', 'Password is incorrect.');
+                return redirect()->to('/login');
+            }
+        }else{
+            $session->setFlashdata('msg', 'Email does not exist.');
+            return redirect()->to('/login');
+        }
+    }
     public function index(): string
     {
         // $result = addition(5, 10);
@@ -24,6 +56,7 @@ class Home extends BaseController
         return redirect()->to(base_url('show'));
     }
     public function insert(){
+        $hashedPassword = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
         if($this->request->getFile('user_image') && $this->request->getFile('user_image')->isValid()){
             $image = $this->request->getFile('user_image');
             $newName = $image->getRandomName();
@@ -34,7 +67,7 @@ class Home extends BaseController
         $data = [
                 'user_name' => $this->request->getVar('username'),
                 'user_email' => $this->request->getVar('email'),
-                'user_password' => $this->request->getVar('password'),
+                'user_password' => $hashedPassword,
                 'user_image' => $newName,
         ];        
         $obj = new User();
@@ -50,8 +83,11 @@ class Home extends BaseController
         $data = [
             'user_name' => $this->request->getVar('username'),
             'user_email' => $this->request->getVar('email'),
-            'user_password' => $this->request->getVar('password'),
     ]; 
+    if($this->request->getVar('password')){
+            $hashedPassword = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+            $data['user_password'] = $hashedPassword;
+}
     if($this->request->getFile('user_image') && $this->request->getFile('user_image')->isValid()){
         $image = $this->request->getFile('user_image');
             $newName = $image->getRandomName();

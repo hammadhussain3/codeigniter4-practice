@@ -31,7 +31,7 @@
         <div class="row">
             <div class="mb-3 col-md-6">
                 <label for="" class="form-label">Password</label>
-                <input type="text" class="form-control" name="password" value="<?php echo $user['user_password']?>"><br><br>
+                <input type="text" class="form-control" name="password"><br><br>
             </div>
             <div class="mb-3 col-md-6">
                 <label for="" class="form-label">Profile</label>
