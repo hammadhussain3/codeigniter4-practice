@@ -4,8 +4,12 @@ namespace App\Controllers;
 use App\Models\User;
 class Home extends BaseController
 {
+    public function __construct(){
+        helper('addition');
+    }
     public function index(): string
     {
+        // echo addition();
         return view('welcome_message');
     }
     public function show(){
@@ -42,15 +46,17 @@ class Home extends BaseController
         return view('edit',$data);
     }
     public function update(){
-        $image = $this->request->getFile('user_image');
-        $newName = $image->getRandomName();
-        $image->move(ROOTPATH . 'public/uploads', $newName);
         $data = [
             'user_name' => $this->request->getVar('username'),
             'user_email' => $this->request->getVar('email'),
             'user_password' => $this->request->getVar('password'),
-            'user_image' => $newName,
     ]; 
+    if($this->request->getFile('user_image') && $this->request->getFile('user_image')->isValid()){
+        $image = $this->request->getFile('user_image');
+            $newName = $image->getRandomName();
+            $image->move(ROOTPATH . 'public/uploads', $newName);
+        $data['user_image'] = $newName;
+    }
         $id = $this->request->getVar('id');
         $model = new User();
         $model->update($id,$data);
