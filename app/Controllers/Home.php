@@ -19,10 +19,14 @@ class Home extends BaseController
         return redirect()->to(base_url('show'));
     }
     public function insert(){
+        $image = $this->request->getFile('user_image');
+        $newName = $image->getRandomName();
+        $image->move(ROOTPATH . 'public/uploads', $newName);
         $data = [
                 'user_name' => $this->request->getVar('username'),
                 'user_email' => $this->request->getVar('email'),
                 'user_password' => $this->request->getVar('password'),
+                'user_image' => $newName,
         ];        
         $obj = new User();
         $obj->insert($data);
