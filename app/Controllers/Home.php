@@ -9,7 +9,8 @@ class Home extends BaseController
     }
     public function index(): string
     {
-        // echo addition();
+        // $result = addition(5, 10);
+        // echo 'The sum is: ' . $result;
         return view('welcome_message');
     }
     public function show(){
