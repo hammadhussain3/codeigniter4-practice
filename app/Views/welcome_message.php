@@ -14,9 +14,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        
-        <h1>Registration form</h1>
+    <div class="container mt-3">
+        <h3>Registration form</h3>
         <form method="post" action="<?php echo site_url('insert') ?>" enctype="multipart/form-data">
         <div class="row">
             <div class="mt-3 mb-3 col-md-6">
@@ -24,17 +23,17 @@
                 <input type="text" class="form-control" name="username"><br><br>
             </div>
             <div class="mb-3 col-md-6">
-                <label for="" class="form-label">User email</label>
+                <label for="" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email"><br><br>
             </div>
         </div>
         <div class="row">
             <div class="mb-3 col-md-6">
-                <label for="" class="form-label">User password</label>
+                <label for="" class="form-label">Password</label>
                 <input type="text" class="form-control" name="password"><br><br>
             </div>
             <div class="mb-3 col-md-6">
-                <label for="" class="form-label">User Image</label>
+                <label for="" class="form-label">Profile</label>
                 <input type="file" class="form-control" name="user_image" id="img-upload" onchange="loadFile(event)" accept="image/*"><br><br>
                 <img class="mb-3" id="output-img" alt="Preview Image" style="width: 100px;" src="https://via.placeholder.com/300" /><br><br>
             </div>

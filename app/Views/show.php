@@ -18,11 +18,11 @@
     <table class="table" border="1px" cellpadding="2px" cellspacing="2px">
         <thead>
             <tr>
-                <th>UserID</th>
-                <th>UserName</th>
-                <th>UserEmail</th>
-                <th>UserPassword</th>
-                <th>UserImage</th>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Profile</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -40,8 +40,8 @@
                     <img class="mb-3" id="output-img" alt="Preview Image" style="width: 50px;" src="https://via.placeholder.com/300" /><br><br>
                 <?php } ?>
                 </td>
-                <td><a href="<?php echo base_url(); ?>edit/<?php echo $user['user_id'] ?>">Edit</a></td>
-                <td><a href="<?php echo base_url(); ?>delete/<?php echo $user['user_id'] ?>">Delete</a></td>
+                <td><a class="btn btn-primary" href="<?php echo base_url(); ?>edit/<?php echo $user['user_id'] ?>">Edit</a></td>
+                <td><a class="btn btn-danger" href="<?php echo base_url(); ?>delete/<?php echo $user['user_id'] ?>">Delete</a></td>
             </tr>
       <?php  } ?>
     </table>

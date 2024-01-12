@@ -14,8 +14,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Update form</h1>
-    <div class="container">
+    <div class="container mt-3">
+        <h3>Update form</h3>
     <form method="post" action="<?php echo site_url('update') ?>" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $user['user_id']?>">
     <div class="row">
@@ -24,17 +24,17 @@
                 <input type="text" class="form-control" name="username" value="<?php echo $user['user_name']?>"><br><br>
             </div>
             <div class="mb-3 col-md-6">
-                <label for="" class="form-label">User email</label>
+                <label for="" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email" value="<?php echo $user['user_email']?>"><br><br>
             </div>
         </div>
         <div class="row">
             <div class="mb-3 col-md-6">
-                <label for="" class="form-label">User password</label>
+                <label for="" class="form-label">Password</label>
                 <input type="text" class="form-control" name="password" value="<?php echo $user['user_password']?>"><br><br>
             </div>
             <div class="mb-3 col-md-6">
-                <label for="" class="form-label">User Image</label>
+                <label for="" class="form-label">Profile</label>
                 <input type="file" name="user_image" id="img-upload" onchange="loadFile(event)" accept="image/*"><br><br>
         <?php if($user['user_image']){?>
             <img class="mb-3" id="output-img" alt="Preview Image" style="width: 100px;" src="<?= base_url('public/uploads/' . $user['user_image']) ?>" /><br><br>
