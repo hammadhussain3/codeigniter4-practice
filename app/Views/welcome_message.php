@@ -1,3 +1,11 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,19 +14,34 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Registration form</h1>
-    <form method="post" action="<?php echo site_url('insert') ?>" enctype="multipart/form-data">
-        <label for="">Username</label>
-        <input type="text" name="username"><br><br>
-        <label for="">User email</label>
-        <input type="email" name="email"><br><br>
-        <label for="">User password</label>
-        <input type="text" name="password"><br><br>
-        <label for="">User Image</label>
-        <input type="file" name="user_image" id="img-upload" onchange="loadFile(event)" accept="image/*"><br><br>
-        <img class="mb-3" id="output-img" alt="Preview Image" style="width: 100px;" src="https://via.placeholder.com/300" /><br><br>
-        <input type="submit" name="submit" value="submit">
-    </form>
+    <div class="container">
+        
+        <h1>Registration form</h1>
+        <form method="post" action="<?php echo site_url('insert') ?>" enctype="multipart/form-data">
+        <div class="row">
+            <div class="mt-3 mb-3 col-md-6">
+                <label for="" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username"><br><br>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label for="" class="form-label">User email</label>
+                <input type="email" class="form-control" name="email"><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label for="" class="form-label">User password</label>
+                <input type="text" class="form-control" name="password"><br><br>
+            </div>
+            <div class="mb-3 col-md-6">
+                <label for="" class="form-label">User Image</label>
+                <input type="file" class="form-control" name="user_image" id="img-upload" onchange="loadFile(event)" accept="image/*"><br><br>
+                <img class="mb-3" id="output-img" alt="Preview Image" style="width: 100px;" src="https://via.placeholder.com/300" /><br><br>
+            </div>
+        </div>
+        <button type="submit" name="submit" class="btn btn-primary" style="float: right;">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>

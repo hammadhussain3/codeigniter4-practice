@@ -1,3 +1,11 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +14,19 @@
     <title>Document</title>
 </head>
 <body>
-    <table border="1px" cellpadding="2px" cellspacing="2px">
-        <tr>
-            <th>UserID</th>
-            <th>UserName</th>
-            <th>UserEmail</th>
-            <th>UserPassword</th>
-            <th>UserImage</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
+    <div class="container mt-3">
+    <table class="table" border="1px" cellpadding="2px" cellspacing="2px">
+        <thead>
+            <tr>
+                <th>UserID</th>
+                <th>UserName</th>
+                <th>UserEmail</th>
+                <th>UserPassword</th>
+                <th>UserImage</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
         <?php foreach($users as $user){ ?>
             <tr>
                 <td><?php echo $user['user_id'] ?></td>
@@ -34,5 +45,6 @@
             </tr>
       <?php  } ?>
     </table>
+    </div>
 </body>
 </html>
